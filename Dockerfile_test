@@ -8,8 +8,8 @@ test_Build() {
 }
 
 test_Executables() {
-  for CMD in "dot -V" "blockdiag -h" "mmdc -h" "erd -h"; do
-    OUTPUT=$(docker run ${TEST_IMAGE_NAME}:${TEST_IMAGE_TAG} ${CMD})
+  for CMD in "blockdiag" "erd"; do
+    OUTPUT=$(docker run ${TEST_IMAGE_NAME}:${TEST_IMAGE_TAG} ${CMD} -h)
     assertNotEquals " can't run ${PRG};" "${OUTPUT}" ""
   done
 }
