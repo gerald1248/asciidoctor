@@ -8,7 +8,7 @@ test_Build() {
 }
 
 test_Executables() {
-  for CMD in "blockdiag" "erd"; do
+  for CMD in "blockdiag" "erd" "pandoc"; do
     OUTPUT=$(docker run ${TEST_IMAGE_NAME}:${TEST_IMAGE_TAG} ${CMD} -h)
     assertNotEquals " can't run ${PRG};" "${OUTPUT}" ""
   done
